@@ -7,7 +7,7 @@ This project analyses football matches using advanced computer vision techniques
 - **KMeans** and **SigLip** for team classification.
 
 ![FA Cup Final 2024](public/start.jpg "FA Cup Final 2024")
-
+![FA Cup Final 2024](public/manu.gif "FA Cup Final 2024")
 ---
 
 ## Key Components
