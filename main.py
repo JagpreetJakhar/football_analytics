@@ -7,7 +7,7 @@ import cv2 as cv
 from utils import generate_video,generate_frames,crop_image
 from inference import infer
 from visualisations import draw_triangle,draw_ellipse,annotate
-
+from interpolation import ball_interpolation
 def main():
     print("Starting...")
     #ultralytics.checks()
@@ -30,6 +30,7 @@ def main():
     else:
         print("No frames generated from the video. Please check the input path.")
     result_df = infer(NO_OF_FRAMES,frames,RESULT_NAME)
+    result_df = ball_interpolation(result_df)
     result_df.to_parquet(f'results/{RESULT_NAME}.parquet', index=False)
     print(f'Results saved to results/{RESULT_NAME}.parquet')
     print("===================")
@@ -47,7 +48,7 @@ def main():
                 frame=draw_triangle(frame,box)
             if track_id>-1:
                frame= annotate(frame,box,class_id,track_id)
-        cv.imwrite(f'output/manframes/out_{i:04}.jpg',frame)
+        #cv.imwrite(f'output/manframes/out_{i:04}.jpg',frame)
         out_frames.append(frame)
     #Save Results
 

@@ -42,6 +42,15 @@ This project analyses football matches using advanced computer vision techniques
 
 ---
 
+### 3. Ball Interpolation
+#### Workflow:
+1. **Basic Idea**
+   -  The Ball is not detected in many frames, but we know that in most cases, the ball travels in a linear fashion, and in cases where passes are curved, still linear interpolation can be used to fill in missing values.
+
+2. **Interpolation**
+   -   We separate out the frames when there is no ball detection in our results dataframe, then insert np.nans into the box column for those and merge the dataframe.
+   - Finally, we replace the nans by using linear interpolation
+
 ## How to Run
 1. Install dependencies:
    ```bash
